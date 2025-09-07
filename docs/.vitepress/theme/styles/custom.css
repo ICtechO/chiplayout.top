@@ -1,0 +1,524 @@
+:root {
+  --vp-c-brand: #646cff;
+  --vp-c-brand-light: #747bff;
+  --vp-c-brand-dark: #5460fe;
+  
+  /* 移动端优化变量 */
+  --vp-mobile-navbar-height: 4rem;
+  --vp-mobile-sidebar-width: 80%;
+  --vp-content-padding: 1rem;
+  --vp-mobile-content-padding: 0.75rem;
+}
+
+/* 暗色模式 */
+.dark {
+  --vp-c-bg: #1e1e20;
+  --vp-c-bg-soft: #2c2c30;
+  --vp-c-bg-mute: #313136;
+  --vp-c-divider: #3f3f44;
+  --vp-c-text: #dddde3;
+}
+
+/* 恢复VitePress默认样式 */
+/* 移除了隐藏导航栏的样式规则 */
+
+.VPContent {
+  /* 恢复合适的顶部内边距以容纳导航栏 */
+  padding-top: var(--vp-nav-height) !important;
+}
+
+.VPDoc {
+  /* 恢复文档内容的内边距 */
+  padding-top: 24px !important;
+  padding-bottom: 24px !important;
+}
+
+.VPDoc .container {
+  /* 恢复合适的容器样式 */
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  padding: 0 24px !important;
+}
+
+/* 自定义内容容器 */
+.content-container {
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 0 var(--vp-content-padding);
+  display: flex;
+}
+
+@media (min-width: 768px) {
+  .content-container {
+    padding: 0 24px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .content-container {
+    max-width: 1440px;
+  }
+}
+
+/* 主页样式定制 */
+.home-container {
+  padding: 40px var(--vp-mobile-content-padding);
+}
+
+@media (min-width: 768px) {
+  .home-container {
+    padding: 64px 24px;
+  }
+}
+
+.hero-section {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+  .hero-section {
+    margin-bottom: 64px;
+  }
+}
+
+.features-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 640px) {
+  .features-section {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+}
+
+.feature-card {
+  padding: 20px;
+  background-color: var(--vp-c-bg-soft);
+  border-radius: 8px;
+}
+
+@media (min-width: 768px) {
+  .feature-card {
+    padding: 24px;
+  }
+}
+
+/* 自定义样式覆盖 */
+.VPNavBar {
+  @apply border-b border-gray-200 dark:border-zinc-800;
+}
+
+.VPNavBar .container {
+  @apply max-w-none mx-0 px-0;
+}
+
+/* 在TailwindCSS和VitePress样式之间建立兼容性 */
+.vp-doc [class~="lead"] {
+  @apply text-xl text-gray-500 dark:text-gray-400;
+}
+
+.vp-doc a {
+  @apply text-indigo-600 dark:text-indigo-400 font-medium;
+}
+
+.vp-doc strong {
+  @apply font-semibold text-gray-900 dark:text-white;
+}
+
+.vp-doc ol > li::before {
+  @apply text-gray-500 dark:text-gray-400;
+}
+
+.vp-doc ul > li::before {
+  @apply bg-gray-500 dark:bg-gray-400;
+}
+
+.vp-doc hr {
+  @apply border-gray-200 dark:border-gray-800;
+}
+
+.vp-doc blockquote {
+  @apply border-l-4 border-gray-200 dark:border-gray-800 pl-4 text-gray-600 dark:text-gray-300;
+}
+
+.vp-doc h1 {
+  @apply text-3xl font-bold tracking-tight text-gray-900 dark:text-white;
+}
+
+.vp-doc h2 {
+  @apply text-2xl font-semibold tracking-tight text-gray-900 dark:text-white mt-10;
+}
+
+.vp-doc h3 {
+  @apply text-xl font-semibold tracking-tight text-gray-900 dark:text-white mt-6;
+}
+
+.vp-doc h4 {
+  @apply text-lg font-semibold tracking-tight text-gray-900 dark:text-white mt-4;
+}
+
+.vp-doc code {
+  @apply bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-sm;
+}
+
+.vp-doc pre {
+  @apply bg-gray-100 dark:bg-gray-800 rounded-md p-4 overflow-x-auto;
+}
+
+.vp-doc pre code {
+  @apply bg-transparent p-0;
+}
+
+/* 自定义首页Hero图片尺寸 */
+.VPHero .image-bg {
+  transform: scale(1.5); /* 将图片放大1.5倍 */
+}
+
+.VPHero .image-container {
+  width: 300px !important;
+  height: 300px !important;
+}
+
+.VPHero .image {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* 移动端优化样式 */
+@media (max-width: 767px) {
+  /* 触摸友好的链接和按钮 */
+  a, button {
+    touch-action: manipulation;
+  }
+  
+  /* 适当增加点击区域 */
+  .vp-doc a, 
+  .vp-doc button,
+  nav a,
+  nav button {
+    padding: 0.375rem 0;
+  }
+  
+  /* 增加链接和按钮之间的间距 */
+  nav a:not(:last-child),
+  nav button:not(:last-child) {
+    margin-right: 1rem;
+  }
+  
+  /* 确保输入框有足够的点击区域 */
+  input, 
+  select, 
+  textarea {
+    font-size: 16px !important; /* 防止iOS缩放 */
+    min-height: 44px;
+  }
+  
+  /* 优化移动端滚动体验 */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* 优化移动端图片 */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* 增强表格在移动端的可读性 */
+  table {
+    display: block;
+    overflow-x: auto;
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+  
+  /* 提高内容间距，减少拥挤感 */
+  .markdown-content p,
+  .markdown-content ul,
+  .markdown-content ol,
+  .markdown-content blockquote {
+    margin-bottom: 1.25rem;
+    line-height: 1.7;
+  }
+  
+  /* 针对移动端减少内容的外边距，增加可用空间 */
+  .markdown-content {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+  }
+  
+  /* 内容元素样式调整 */
+  .markdown-content :deep(h1) {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+  }
+  
+  .markdown-content :deep(h2) {
+    font-size: 1.5rem;
+    margin-top: 1.75rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+  
+  .markdown-content :deep(h3) {
+    font-size: 1.25rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+  }
+  
+  .markdown-content :deep(p) {
+    margin-bottom: 1.25rem;
+    line-height: 1.6;
+  }
+  
+  /* 增加内容间距 */
+  .markdown-content :deep(p),
+  .markdown-content :deep(ul),
+  .markdown-content :deep(ol),
+  .markdown-content :deep(blockquote),
+  .markdown-content :deep(.custom-block) {
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+  }
+  
+  /* 调整代码块显示 */
+  .markdown-content :deep(pre) {
+    margin: 1.25rem 0;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+  .markdown-content :deep(pre code) {
+    white-space: pre;
+    word-break: normal;
+    overflow-x: auto;
+  }
+  
+  /* 确保表格可以水平滚动 */
+  .markdown-content :deep(table) {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    border-collapse: collapse;
+  }
+  
+  /* 确保在移动设备上没有水平滚动条 */
+  .content-container,
+  .container,
+  .main,
+  section {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+  
+  /* 移动端内容占满屏幕宽度 */
+  .content-container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  
+  /* 移动端下Hero和Features组件适配 */
+  .hero-section, 
+  .features-section {
+    width: 100vw;
+    padding-left: var(--vp-mobile-content-padding);
+    padding-right: var(--vp-mobile-content-padding);
+    box-sizing: border-box;
+  }
+  
+  /* 更合理的行高和间距 */
+  p, li {
+    line-height: 1.7;
+    font-size: 1rem;
+  }
+  
+  /* 改进代码和引用块的显示 */
+  pre, code, blockquote {
+    max-width: 100%;
+    border-radius: 0.5rem;
+  }
+  
+  /* 内容和容器宽度调整 */
+  .content-container,
+  .container,
+  .main {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  /* 优化首页在移动端的显示 */
+  .hero-gradient, 
+  .features-section {
+    width: 100%;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+  
+  /* 改善移动端滚动条外观 */
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+  }
+  
+  .dark ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* 避免内容被iOS底部工具栏遮挡 */
+@supports (padding: max(0px)) {
+  body {
+    padding-bottom: max(0px, env(safe-area-inset-bottom));
+  }
+  
+  .fixed-bottom {
+    padding-bottom: max(0px, env(safe-area-inset-bottom));
+  }
+}
+
+/* 修复移动端缩放问题 */
+@media (max-width: 767px) {
+  html {
+    font-size: 16px;
+  }
+  
+  /* 增加字体大小以提高可读性 */
+  body {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  /* 更宽松的段落行高 */
+  p {
+    line-height: 1.7;
+  }
+  
+  /* 增加内容之间的垂直间距 */
+  h1, h2, h3, h4, p, ul, ol, pre, blockquote {
+    margin-top: 1.25em;
+    margin-bottom: 1.25em;
+  }
+  
+  /* 确保在移动设备上没有水平滚动条 */
+  .content-container,
+  .container,
+  .main,
+  section {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+  
+  /* 移动端内容占满屏幕宽度 */
+  .content-container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  
+  /* 移动端下Hero和Features组件适配 */
+  .hero-section, 
+  .features-section {
+    width: 100vw;
+    padding-left: var(--vp-mobile-content-padding);
+    padding-right: var(--vp-mobile-content-padding);
+    box-sizing: border-box;
+  }
+}
+
+/* 添加视口元标签设置 */
+head::after {
+  content: '';
+  display: none;
+}
+
+/* 控制元素在不同屏幕尺寸的可见性 */
+@media (max-width: 640px) {
+  .sm-hidden {
+    display: none !important;
+  }
+}
+
+@media (min-width: 641px) {
+  .sm-visible {
+    display: none !important;
+  }
+}
+
+/* 其他自定义样式覆盖 */
+
+/* API参考页面代码块优化 */
+.vp-doc div[class*='language-'] {
+  border-radius: 0.5rem;
+  margin: 1.25rem 0;
+  overflow-x: auto;
+  position: relative;
+}
+
+@media (max-width: 767px) {
+  .vp-doc div[class*='language-'] {
+    margin: 1rem 0;
+    border-radius: 0.5rem;
+  }
+  
+  .vp-doc div[class*='language-'] code {
+    font-size: 0.85rem;
+    padding: 0;
+    line-height: 1.5;
+  }
+  
+  /* 调整代码行号 */
+  .vp-doc div[class*='language-'].line-numbers-mode .line-numbers {
+    display: none;
+  }
+  
+  /* 确保代码块内容左对齐、不换行并可滚动 */
+  .vp-doc [class*='language-'] pre {
+    padding: 1rem;
+    margin: 0;
+    white-space: pre;
+    overflow-x: auto;
+  }
+  
+  /* 调整API参考页面的标题和内容间距 */
+  .vp-doc h1 + p,
+  .vp-doc h2 + p,
+  .vp-doc h3 + p {
+    margin-top: 0.75rem;
+  }
+  
+  /* 优化代码块说明文字 */
+  .vp-doc div[class*='language-'] .lang {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.75rem;
+    font-size: 0.7rem;
+    opacity: 0.7;
+  }
+  
+  /* 调整配置示例格式 */
+  .vp-doc .custom-block.config {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin: 1.25rem 0;
+  }
+} 

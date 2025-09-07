@@ -1,0 +1,70 @@
+/**
+ * TailwindCSS预处理样式
+ * 这个文件用来确保TailwindCSS的基础样式正确应用
+ * 同时不破坏VitePress的特定样式
+ */
+
+/* 基础重置 */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+}
+
+/* 移除默认边距 */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* 基础字体和行高设置 */
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  line-height: 1.5;
+}
+
+/* 统一按钮样式 */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+/* 确保行级元素正确显示 */
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/* 修复图片显示 */
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 修复Markdown内的列表样式 */
+.markdown-body ul {
+  list-style-type: disc;
+  padding-left: 1.5em;
+}
+
+.markdown-body ol {
+  list-style-type: decimal;
+  padding-left: 1.5em;
+} 
