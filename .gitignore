@@ -14,6 +14,12 @@ dist-ssr
 coverage
 *.local
 
+10.版图
+30.EDA
+50.编程
+70.mySite
+80.life
+
 /cypress/videos/
 /cypress/screenshots/
 
